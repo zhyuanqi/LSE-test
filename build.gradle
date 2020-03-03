@@ -17,20 +17,17 @@
 //}
 
 
-
 buildscript {
     ext {
-        version_es = '7.4.2'
-//    version_c2 = 'org.carrot2:carrot2-core:4.0.0-beta3'
+        es_version = System.getProperty("es.version", "7.4.2")
     }
 
     repositories {
         mavenCentral()
-        jcenter()
     }
 
     dependencies {
-        classpath "org.elasticsearch.gradle:build-tools:" + version_es
+        classpath  "org.elasticsearch.gradle:build-tools:${es_version}"
     }
 
     wrapper {
@@ -38,7 +35,6 @@ buildscript {
     }
 }
 
-//apply plugin: 'elasticsearch.testclusters'
 apply plugin: 'elasticsearch.esplugin'
 
 esplugin {
